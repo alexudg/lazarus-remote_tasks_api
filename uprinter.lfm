@@ -1,0 +1,9 @@
+object frmPrinter: TfrmPrinter
+  Left = 238
+  Height = 240
+  Top = 250
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'frmPrinter'
+  Position = poMainFormCenter
+end

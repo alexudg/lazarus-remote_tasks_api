@@ -18,7 +18,7 @@ uses
   base64};
 
 type
-  TPrintTask = procedure(task: TTask) of object; // for callback from frmMain
+  TPrintTask = function(task: TTask): integer of object; // for callback from frmMain
 
   { TServerThread }
   TServerThread = class(TThread)
@@ -450,8 +450,10 @@ begin
       begin
         id := StrToInt(req.RouteParams['id']);
         task := TTask.get(id);
-        printTask(task); // callback from frmMain on initialization
-        status := 'printed';
+        if (printTask(task) = -1) then // callback from frmMain on initialization
+          status := 'not printed'
+        else
+          status := 'printed';
       end
       else
         status := 'error';

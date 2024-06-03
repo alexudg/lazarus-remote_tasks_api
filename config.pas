@@ -19,11 +19,13 @@ type
       id: integer;
       isApiEnable: boolean;
       apiPort: Word;
+      printerName: String;
 
       constructor create(
         id: integer;
         isApiEnable: boolean;
-        apiPort: Word
+        apiPort: Word;
+        printerName: String
       ); overload; // two constructors
       function ToString: String; override;
 
@@ -35,26 +37,28 @@ implementation
 
 { TConfig }
 
-constructor TConfig.create(id: integer; isApiEnable: boolean; apiPort: Word);
+constructor TConfig.create(id: integer; isApiEnable: boolean; apiPort: Word; printerName: String);
 begin
   self.id:=id;
   self.isApiEnable:=isApiEnable;
   self.apiPort:=apiPort;
+  self.printerName:=printerName;
 end;
 
 function TConfig.ToString: String;
 begin
   //Result:=inherited ToString;
-  Result := Format('TConfig: {id: %d, isApiEnable: %s, apiPort: %d}', [
+  Result := Format('TConfig: {id: %d, isApiEnable: %s, apiPort: %d, printerName: %s}', [
     self.id,
     BoolToStr(self.isApiEnable, true),
-    self.apiPort
+    self.apiPort,
+    self.printerName
   ]);
 end;
 
 class function TConfig.get: TConfig;
 const
-  SQL = 'SELECT id, isApiEnable, apiPort FROM config';
+  SQL = 'SELECT id, isApiEnable, apiPort, printerName FROM config';
 var
   row: TDictionary<String, variant>;
 begin
@@ -62,7 +66,8 @@ begin
   Result := TConfig.create(
     row['id'],
     row['isApiEnable'],
-    row['apiPort']
+    row['apiPort'],
+    row['printerName']
   );
 end;
 
@@ -70,11 +75,13 @@ class procedure TConfig.update(config: TConfig);
 const
   SQL = 'UPDATE config SET ' +
           'isApiEnable = :isApiEnable,' +
-          'apiPort = :apiPort';
+          'apiPort = :apiPort,' +
+          'printerName = :printerName';
 begin
   TSQLite.execSql(SQL, [
     config.isApiEnable,
-    config.apiPort
+    config.apiPort,
+    config.printerName
   ]);
 end;
 

@@ -9,7 +9,6 @@ object frmMain: TfrmMain
   Menu = menuMain
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '3.2.0.0'
   object bar: TStatusBar
     Left = 0
     Height = 23
@@ -100,9 +99,11 @@ object frmMain: TfrmMain
       item
         ReadOnly = True
         Title.Caption = 'Titulo'
+        Width = 145
       end    
       item
         Title.Caption = 'Descripción'
+        Width = 145
       end    
       item
         Alignment = taCenter
@@ -110,6 +111,7 @@ object frmMain: TfrmMain
         ReadOnly = True
         Title.Alignment = taCenter
         Title.Caption = 'Hecha'
+        Width = 145
         ValueChecked = 'True'
         ValueUnchecked = 'False'
       end>
@@ -117,6 +119,11 @@ object frmMain: TfrmMain
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goThumbTracking, goDblClickAutoSize, goSmoothScroll]
     RowCount = 2
     TabOrder = 2
+    ColWidths = (
+      145
+      145
+      145
+    )
     Cells = (
       1
       0
@@ -129,9 +136,9 @@ object frmMain: TfrmMain
     Top = 128
     object menuConfig: TMenuItem
       Caption = 'Configuracion'
-      object menuApi: TMenuItem
-        Caption = 'Servicio a móviles'
-        OnClick = menuApiClick
+      object menuGeneral: TMenuItem
+        Caption = 'General'
+        OnClick = menuGeneralClick
       end
       object MenuItem2: TMenuItem
         Caption = 'Usuarios'

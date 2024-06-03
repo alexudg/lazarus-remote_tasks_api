@@ -1,4 +1,4 @@
-program api_ui;
+program remote_tasks_api;
 
 {$mode objfpc}{$H+}
 
@@ -26,7 +26,13 @@ begin
   Forms.RequireDerivedFormResource:=True;
   Forms.Application.Scaled:=True;
   Forms.Application.Initialize;
-  Forms.Application.CreateForm(TfrmMain, frmMain);
-  Forms.Application.Run;
+  Forms.
+  Application.CreateForm(TfrmMain, frmMain);
+
+  Forms.
+  Application.Scaled:=True;
+  Application.Scaled:=True;
+  Application.Title:='remote_tasks_api';
+Application.Run;
 end.
 

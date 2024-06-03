@@ -5,7 +5,7 @@
     <PathDelim Value="\"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="api_ui"/>
+      <Title Value="remote_tasks_api"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -37,7 +37,7 @@
     </RequiredPackages>
     <Units>
       <Unit>
-        <Filename Value="api_ui.lpr"/>
+        <Filename Value="remote_tasks_api.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
@@ -103,7 +103,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="api_ui"/>
+      <Filename Value="remote_tasks_api"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

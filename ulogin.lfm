@@ -1,19 +1,19 @@
 object frmLogin: TfrmLogin
   Left = 1274
-  Height = 240
+  Height = 197
   Top = 250
-  Width = 320
+  Width = 265
   BorderStyle = bsDialog
   Caption = 'Ingreso de usuario'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 197
+  ClientWidth = 265
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
   object btnOk: TButton
-    Left = 56
+    Left = 32
     Height = 25
-    Top = 184
+    Top = 144
     Width = 75
     Caption = 'Entrar'
     Default = True
@@ -21,44 +21,44 @@ object frmLogin: TfrmLogin
     OnClick = btnOkClick
   end
   object btnClose: TButton
-    Left = 184
+    Left = 152
     Height = 25
-    Top = 184
+    Top = 144
     Width = 75
     Caption = 'Cerrar app'
     TabOrder = 1
     OnClick = btnCloseClick
   end
   object txtName: TEdit
-    Left = 144
-    Height = 22
-    Top = 52
+    Left = 88
+    Height = 23
+    Top = 40
     Width = 104
     TabOrder = 2
   end
   object txtPass: TEdit
-    Left = 144
-    Height = 22
-    Top = 88
+    Left = 88
+    Height = 23
+    Top = 76
     Width = 104
     EchoMode = emPassword
     PasswordChar = '*'
     TabOrder = 3
   end
   object Label1: TLabel
-    Left = 99
-    Height = 14
-    Top = 56
-    Width = 43
+    Left = 43
+    Height = 15
+    Top = 44
+    Width = 40
     Caption = 'Usuario'
     Color = clGray
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 80
-    Height = 14
-    Top = 92
-    Width = 62
+    Left = 24
+    Height = 15
+    Top = 80
+    Width = 60
     Caption = 'Contraseña'
     Color = clGray
     ParentColor = False
@@ -80,7 +80,7 @@ object frmLogin: TfrmLogin
     TitleFont.Quality = fqDraft
     TitleFont.Style = [fsBold]
     Visible = False
-    Left = 144
+    Left = 24
     Top = 144
   end
   object tmrMain: TTimer

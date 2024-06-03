@@ -6,7 +6,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, ComCtrls, config;
+  StdCtrls, ComCtrls,
+  Printers, // printer4lazarus
+  config;
 
 type
 
@@ -18,14 +20,18 @@ type
     btnSave: TBitBtn;
     chkIsApiEnable: TCheckBox;
     bar: TStatusBar;
-    txtApiPort: TEdit;
+    boxApi: TGroupBox;
+    comboPrinters: TComboBox;
+    boxPrinters: TGroupBox;
     Label1: TLabel;
     Panel1: TPanel;
+    txtApiPort: TEdit;
     procedure btnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     _config: TConfig;
     procedure _loadFields;
+    procedure _loadPrinters;
   public
     isChanged: boolean; // default=false
   end;
@@ -66,11 +72,14 @@ begin
     // save
     else
     begin
-      _config := TConfig.create(
-        -1, // id, not used
-        chkIsApiEnable.Checked,
-        port
-      );
+      // same _config at create form
+      if (comboPrinters.ItemIndex = 0) then
+        _config.printerName:=''
+      else
+        _config.printerName:=comboPrinters.Text;
+      _config.isApiEnable:=chkIsApiEnable.Checked;
+      _config.apiPort:=port;
+
       TConfig.update(_config);
       isChanged := true;
     end;
@@ -81,6 +90,7 @@ begin
   btnUpdate.Visible:=idBtn <= 1;
   btnCancel.Visible:=idBtn = 2;
   btnSave.Visible:= idBtn = 2;
+  comboPrinters.Enabled:=idBtn = 2;
   chkIsApiEnable.Enabled:=idBtn = 2;
   txtApiPort.Enabled:=idBtn = 2;
 
@@ -93,14 +103,44 @@ end;
 
 procedure TfrmConfig.FormCreate(Sender: TObject);
 begin
+  _loadPrinters();
   _config := TConfig.get();
   btnCancel.Click;
 end;
 
 procedure TfrmConfig._loadFields;
+var
+  i: byte;
 begin
+  // select saved printer
+  if _config.printerName = '' then
+    comboPrinters.ItemIndex:=0
+  else
+  begin
+    for i:=0 to comboPrinters.Items.Count do
+    begin
+      if comboPrinters.Items[i] = _config.printerName then
+      begin
+        comboPrinters.ItemIndex:=i;
+        Break;
+      end;
+    end;
+  end;
+
   chkIsApiEnable.Checked:=_config.isApiEnable;
   txtApiPort.Text:=_config.apiPort.ToString();
+end;
+
+procedure TfrmConfig._loadPrinters;
+var
+  printerName: String;
+begin
+  comboPrinters.Items.Add('<ninguna>');
+  Printer.Refresh;
+  for printerName in Printer.Printers do
+  begin
+    comboPrinters.Items.Add(printerName);
+  end;
 end;
 
 end.

@@ -17,7 +17,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ComCtrls,
   ExtCtrls, Buttons, Grids, Windows, Api, Config, uConfig,
   WinSock, uUsers, uLogin, User, Task, Generics.Collections, uTaskInsUpd,
-  Printers;
+  Printers; // printer4lazarus
 
 type
 
@@ -30,9 +30,8 @@ type
     btnInsert: TBitBtn;
     btnUpdate: TBitBtn;
     grid: TStringGrid;
-    menuApi: TMenuItem;
+    menuGeneral: TMenuItem;
     menuConfig: TMenuItem;
-    MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     menuMain: TMainMenu;
     bar: TStatusBar;
@@ -43,15 +42,16 @@ type
     procedure btnPrintClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     function getIpLocal: string;
-    procedure menuApiClick(Sender: TObject);
+    procedure menuGeneralClick(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
+    procedure menuPrinterClick(Sender: TObject);
   private
     _config: TConfig;
     _tasks: TList<TTask>;
     procedure _loadMobileService;
     procedure _loadTasks(idSelect: integer = -1);
   public
-    procedure printTask(task: TTask);
+    function printTask(task: TTask): integer;
   end;
 
 var
@@ -163,7 +163,8 @@ end;
 
 procedure TfrmMain.btnPrintClick(Sender: TObject);
 begin
-  printTask(_tasks[grid.Row - 1]);
+  if (printTask(_tasks[grid.Row - 1]) = -1) then
+    MessageDlg('ERROR', 'Impresora no encontrada', mtError, [], 0);
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
@@ -223,7 +224,7 @@ begin
   end;
 end;
 
-procedure TfrmMain.menuApiClick(Sender: TObject);
+procedure TfrmMain.menuGeneralClick(Sender: TObject);
 var
   isChanged: boolean;
 begin
@@ -253,6 +254,11 @@ begin
   end;
 end;
 
+procedure TfrmMain.menuPrinterClick(Sender: TObject);
+begin
+  //
+end;
+
 procedure TfrmMain._loadMobileService;
 begin
   _config := TConfig.get();
@@ -264,7 +270,7 @@ begin
   if (_config.isApiEnable) then
   begin
     TApi.start(_config.apiPort);
-    bar.Panels[2].Text:='Servicio para moviles: http://' + getIpLocal() + ':' + _config.apiPort.ToString();
+    bar.Panels[2].Text:='Servicio para moviles: ' + getIpLocal() + ':' + _config.apiPort.ToString();
   end
   else
   begin
@@ -294,7 +300,9 @@ begin
       if (_tasks[i].id = idSelect) then
         Row := i + 1;
     end;
+    AutoSizeColumns;
   end;
+
 
   // show count
   with (bar.Panels[1]) do
@@ -306,18 +314,26 @@ begin
   end;
 end;
 
-procedure TfrmMain.printTask(task: TTask);
+function TfrmMain.printTask(task: TTask): integer;
 var
+  config: TConfig;
   x, y, middle, h: integer;
   txt: String;
 begin
   Windows.OutputDebugString(PChar('printTask: ' + task.ToString));
 
+  config := TConfig.get();
+  if (config.printerName = '') then
+  begin
+    Result := -1; // printer not found
+    Exit;
+  end;
+
   // (Printers)
   with (Printer) do
   begin
     Refresh;
-    SetPrinter('Tickets');
+    SetPrinter(config.printerName);
     BeginDoc;
     Canvas.Font.Name := 'Arial';
     Canvas.Font.Size := 10;
@@ -352,6 +368,7 @@ begin
     Canvas.TextOut(x, y, txt);
     EndDoc;
   end;
+  Result := 0; // success
 end;
 
 initialization
