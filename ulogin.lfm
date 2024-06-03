@@ -1,0 +1,93 @@
+object frmLogin: TfrmLogin
+  Left = 1274
+  Height = 240
+  Top = 250
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'Ingreso de usuario'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poMainFormCenter
+  object btnOk: TButton
+    Left = 56
+    Height = 25
+    Top = 184
+    Width = 75
+    Caption = 'Entrar'
+    Default = True
+    TabOrder = 0
+    OnClick = btnOkClick
+  end
+  object btnClose: TButton
+    Left = 184
+    Height = 25
+    Top = 184
+    Width = 75
+    Caption = 'Cerrar app'
+    TabOrder = 1
+    OnClick = btnCloseClick
+  end
+  object txtName: TEdit
+    Left = 144
+    Height = 22
+    Top = 52
+    Width = 104
+    TabOrder = 2
+  end
+  object txtPass: TEdit
+    Left = 144
+    Height = 22
+    Top = 88
+    Width = 104
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 99
+    Height = 14
+    Top = 56
+    Width = 43
+    Caption = 'Usuario'
+    Color = clGray
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 80
+    Height = 14
+    Top = 92
+    Width = 62
+    Caption = 'Contraseña'
+    Color = clGray
+    ParentColor = False
+  end
+  object popup: TPopupNotifier
+    Color = 8421631
+    Icon.Data = {
+      07544269746D617000000000
+    }
+    Text = 'ERROR'
+    TextFont.CharSet = ANSI_CHARSET
+    TextFont.Color = clBlack
+    TextFont.Pitch = fpVariable
+    TextFont.Quality = fqDraft
+    Title = 'ERROR'
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+    TitleFont.Style = [fsBold]
+    Visible = False
+    Left = 144
+    Top = 144
+  end
+  object tmrMain: TTimer
+    Enabled = False
+    Interval = 2500
+    OnTimer = tmrMainTimer
+    Left = 24
+    Top = 72
+  end
+end

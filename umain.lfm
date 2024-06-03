@@ -1,0 +1,142 @@
+object frmMain: TfrmMain
+  Left = 1274
+  Height = 327
+  Top = 250
+  Width = 439
+  Caption = 'Tareas'
+  ClientHeight = 327
+  ClientWidth = 439
+  Menu = menuMain
+  OnShow = FormShow
+  Position = poMainFormCenter
+  LCLVersion = '3.2.0.0'
+  object bar: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 304
+    Width = 439
+    Panels = <    
+      item
+        Width = 50
+      end    
+      item
+        Width = 50
+      end    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object pnlTop: TPanel
+    Left = 0
+    Height = 42
+    Top = 0
+    Width = 439
+    Align = alTop
+    ClientHeight = 42
+    ClientWidth = 439
+    TabOrder = 1
+    object btnDelete: TBitBtn
+      Left = 273
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Eliminar'
+      OnClick = btnDeleteClick
+      TabOrder = 0
+    end
+    object btnUpdate: TBitBtn
+      Tag = 2
+      Left = 328
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Editar'
+      OnClick = btnInsUpdClick
+      TabOrder = 1
+    end
+    object btnInsert: TBitBtn
+      Tag = 3
+      Left = 383
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Nuevo'
+      OnClick = btnInsUpdClick
+      TabOrder = 2
+    end
+    object btnCloseSession: TBitBtn
+      Left = 1
+      Height = 40
+      Top = 1
+      Width = 79
+      Align = alLeft
+      Caption = 'Cerrar sesión'
+      OnClick = btnCloseSessionClick
+      TabOrder = 3
+    end
+    object btnPrint: TBitBtn
+      Left = 218
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Imprimir'
+      OnClick = btnPrintClick
+      TabOrder = 4
+    end
+  end
+  object grid: TStringGrid
+    Left = 0
+    Height = 262
+    Top = 42
+    Width = 439
+    Align = alClient
+    ColCount = 3
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'Titulo'
+      end    
+      item
+        Title.Caption = 'Descripción'
+      end    
+      item
+        Alignment = taCenter
+        ButtonStyle = cbsCheckboxColumn
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'Hecha'
+        ValueChecked = 'True'
+        ValueUnchecked = 'False'
+      end>
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goThumbTracking, goDblClickAutoSize, goSmoothScroll]
+    RowCount = 2
+    TabOrder = 2
+    Cells = (
+      1
+      0
+      0
+      'Usuario'
+    )
+  end
+  object menuMain: TMainMenu
+    Left = 24
+    Top = 128
+    object menuConfig: TMenuItem
+      Caption = 'Configuracion'
+      object menuApi: TMenuItem
+        Caption = 'Servicio a móviles'
+        OnClick = menuApiClick
+      end
+      object MenuItem2: TMenuItem
+        Caption = 'Usuarios'
+        OnClick = MenuItem2Click
+      end
+    end
+  end
+end

@@ -1,0 +1,88 @@
+object frmTaskInsUpd: TfrmTaskInsUpd
+  Left = 1274
+  Height = 290
+  Top = 250
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'frmTaskInsUpd'
+  ClientHeight = 290
+  ClientWidth = 320
+  OnShow = FormShow
+  Position = poMainFormCenter
+  object txtTitle: TLabeledEdit
+    Left = 96
+    Height = 22
+    Top = 32
+    Width = 152
+    EditLabel.Height = 14
+    EditLabel.Width = 32
+    EditLabel.Caption = 'Titulo'
+    EditLabel.Color = clGray
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 0
+  end
+  object memoDescription: TMemo
+    Left = 96
+    Height = 90
+    Top = 72
+    Width = 150
+    TabOrder = 1
+  end
+  object chkIsDone: TCheckBox
+    Left = 96
+    Height = 18
+    Top = 173
+    Width = 52
+    Caption = 'Hecha'
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 30
+    Height = 14
+    Top = 72
+    Width = 64
+    Caption = 'Descripción'
+    Color = clGray
+    ParentColor = False
+  end
+  object btnOk: TButton
+    Left = 48
+    Height = 25
+    Top = 236
+    Width = 75
+    Caption = 'Aceptar'
+    TabOrder = 3
+    OnClick = btnOkClick
+  end
+  object btnCancel: TButton
+    Left = 197
+    Height = 25
+    Top = 236
+    Width = 75
+    Caption = 'Cancelar'
+    TabOrder = 4
+    OnClick = btnCancelClick
+  end
+  object tmrMain: TTimer
+    Enabled = False
+    Interval = 2500
+    OnTimer = tmrMainTimer
+    Left = 16
+    Top = 120
+  end
+  object popup: TPopupNotifier
+    Color = 8421631
+    Icon.Data = {
+      07544269746D617000000000
+    }
+    Text = 'ERROR'
+    TextFont.Color = clBlack
+    Title = 'Caption'
+    TitleFont.Color = clBlack
+    TitleFont.Style = [fsBold]
+    Visible = False
+    Left = 16
+    Top = 168
+  end
+end

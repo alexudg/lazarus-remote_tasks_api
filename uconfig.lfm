@@ -1,0 +1,93 @@
+object frmConfig: TfrmConfig
+  Left = 1274
+  Height = 264
+  Top = 250
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'Configuración'
+  ClientHeight = 264
+  ClientWidth = 320
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  object Panel1: TPanel
+    Left = 0
+    Height = 42
+    Top = 0
+    Width = 320
+    Align = alTop
+    Caption = 'Panel1'
+    ClientHeight = 42
+    ClientWidth = 320
+    TabOrder = 0
+    object btnCancel: TBitBtn
+      Left = 209
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Cancelar'
+      OnClick = btnClick
+      TabOrder = 0
+    end
+    object btnUpdate: TBitBtn
+      Tag = 2
+      Left = 264
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Editar'
+      OnClick = btnClick
+      TabOrder = 1
+    end
+    object btnSave: TBitBtn
+      Tag = 1
+      Left = 154
+      Height = 40
+      Top = 1
+      Width = 55
+      Align = alRight
+      Caption = 'Guardar'
+      OnClick = btnClick
+      TabOrder = 2
+    end
+  end
+  object chkIsApiEnable: TCheckBox
+    Left = 27
+    Height = 18
+    Top = 77
+    Width = 116
+    Caption = 'Servicio a móviles'
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 27
+    Height = 14
+    Top = 104
+    Width = 48
+    Caption = 'Puerto IP'
+    Color = clGray
+    ParentColor = False
+  end
+  object txtApiPort: TEdit
+    Left = 80
+    Height = 22
+    Top = 100
+    Width = 63
+    Alignment = taRightJustify
+    NumbersOnly = True
+    TabOrder = 2
+  end
+  object bar: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 241
+    Width = 320
+    Panels = <    
+      item
+        Alignment = taCenter
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+end

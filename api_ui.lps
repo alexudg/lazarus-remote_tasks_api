@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="api_ui.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="12"/>
+        <CursorPos X="3" Y="14"/>
+        <UsageCount Value="108"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="342"/>
+        <CursorPos Y="263"/>
+        <UsageCount Value="108"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="453"/>
+        <CursorPos X="51" Y="465"/>
+        <UsageCount Value="108"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="sqlite.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="158"/>
+        <CursorPos X="7" Y="124"/>
+        <UsageCount Value="106"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="config.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="19" Y="77"/>
+        <UsageCount Value="105"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uconfig.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmConfig"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="14" Y="3"/>
+        <UsageCount Value="104"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="user.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="191"/>
+        <CursorPos X="22" Y="49"/>
+        <UsageCount Value="97"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uusers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUsers"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uUsers"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="117"/>
+        <CursorPos X="14" Y="127"/>
+        <UsageCount Value="95"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulogin.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLogin"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLogin"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6"/>
+        <CursorPos X="24" Y="97"/>
+        <UsageCount Value="91"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="task.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="76"/>
+        <CursorPos X="55" Y="96"/>
+        <UsageCount Value="89"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="utaskinsupd.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmTaskInsUpd"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="utaskInsUpd"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="78"/>
+        <CursorPos X="26" Y="95"/>
+        <UsageCount Value="86"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-web\src\base\fphttpserver.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="88"/>
+        <CursorPos X="49" Y="102"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-generics\src\generics.collections.pas"/>
+        <UnitName Value="Generics.Collections"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1428"/>
+        <CursorPos Y="1440"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\lazarus-puntoventabasico\database.pas"/>
+        <UnitName Value="Database"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="45"/>
+        <CursorPos X="76" Y="55"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-web\src\base\custweb.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="20"/>
+        <CursorPos X="107" Y="31"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1782"/>
+        <CursorPos X="17" Y="1791"/>
+        <UsageCount Value="8"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="21">
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="498" Column="69" TopLine="490"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="48" Column="32" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="245" Column="42" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="48" Column="32" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="500" Column="75" TopLine="489"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="51" Column="34" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="400" Column="20" TopLine="366"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="375" Column="39" TopLine="372"/>
+      </Position>
+      <Position>
+        <Filename Value="task.pas"/>
+        <Caret Line="39" Column="29" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="383" Column="31" TopLine="371"/>
+      </Position>
+      <Position>
+        <Filename Value="sqlite.pas"/>
+        <Caret Line="123" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="268" TopLine="258"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="271" TopLine="258"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="244" TopLine="233"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="50" Column="34" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="341" Column="30" TopLine="328"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="504" Column="42" TopLine="491"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="53" Column="33" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="464" Column="30" TopLine="445"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="62" Column="30" TopLine="52"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="439" Column="11" TopLine="437"/>
+      </Position>
+      <Position>
+        <Filename Value="api.pas"/>
+        <Caret Line="62" Column="30" TopLine="53"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
