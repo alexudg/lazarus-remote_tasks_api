@@ -4,7 +4,7 @@ unit umain;
   * author: Alejandro Ramirez Macias
   * email: alexudg@gmail.com
   * date: may 2024
-  * ide: lazarus 3.2
+  * ide: lazarus 3.4
   * dependences:
     - printer4lazarus
 }
@@ -28,6 +28,7 @@ type
     btnCloseSession: TBitBtn;
     btnPrint: TBitBtn;
     btnInsert: TBitBtn;
+    btnRefresh: TBitBtn;
     btnUpdate: TBitBtn;
     grid: TStringGrid;
     menuGeneral: TMenuItem;
@@ -40,11 +41,12 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnInsUpdClick(Sender: TObject);
     procedure btnPrintClick(Sender: TObject);
+    procedure btnRefreshClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     function getIpLocal: string;
     procedure menuGeneralClick(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
-    procedure menuPrinterClick(Sender: TObject);
   private
     _config: TConfig;
     _tasks: TList<TTask>;
@@ -68,6 +70,9 @@ var
   i: integer;
   mr: TModalResult;
 begin
+  // user default
+  TUser.currentUser := TUser.Create; // id: -1
+
   // hide menu
   for i:=0 to menuMain.Items.Count - 1 do
   begin
@@ -167,6 +172,25 @@ begin
     MessageDlg('ERROR', 'Impresora no encontrada', mtError, [], 0);
 end;
 
+procedure TfrmMain.btnRefreshClick(Sender: TObject);
+var
+  id: integer;
+begin
+  if (self.Visible and (TUser.currentUser.id > -1)) then
+  begin
+    if (_tasks.Count > 0) then
+      id := _tasks[grid.Row - 1].id
+    else
+      id := -1;
+    _loadTasks(id);
+  end;
+end;
+
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+  _tasks := TList<TTask>.Create
+end;
+
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
   _loadMobileService();
@@ -252,11 +276,6 @@ begin
   begin
     //_loadCurrentUser();
   end;
-end;
-
-procedure TfrmMain.menuPrinterClick(Sender: TObject);
-begin
-  //
 end;
 
 procedure TfrmMain._loadMobileService;
@@ -373,6 +392,5 @@ end;
 
 initialization
    Windows.OutputDebugString(PChar('frmMain initialization'));
-   TApi.printTask:=TfrmMain.printTask;
 end.
 

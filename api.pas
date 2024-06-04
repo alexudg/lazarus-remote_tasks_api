@@ -18,7 +18,8 @@ uses
   base64};
 
 type
-  TPrintTask = function(task: TTask): integer of object; // for callback from frmMain
+  // for callback from frmMain into of initialization section
+  //TPrintTask = function(task: TTask): integer of object;
 
   { TServerThread }
   TServerThread = class(TThread)
@@ -34,10 +35,7 @@ type
   TApi = class
     private
       class var
-        server: TServerThread;
-      class procedure _onShowRequestException(AResponse: TResponse; AnException: Exception; var handled: boolean);
-
-      class procedure _print(txt: String); static;
+        _server: TServerThread;
 
       class procedure _getRoot(req: TRequest; res: TResponse); static;
 
@@ -58,9 +56,9 @@ type
         isActive: Boolean;
         task: TTask;
 
-        // callBack function
-        printTask: TPrintTask;
-
+        // callBacks function
+        //printTask: TPrintTask;
+      class procedure print(txt: String); static;
       class procedure start(port: Word); static;
       class procedure stop; static;
 
@@ -68,12 +66,14 @@ type
 
 implementation
 
+uses uMain;
+
 { TServerThread }
 
 procedure TServerThread.Execute;
 begin
   fpHttpApp.Application.Run; // here stop, next line to stop service
-  TApi._print('after server Run');
+  TApi.print('after server Run');
 end;
 
 constructor TServerThread.Create(port: Word);
@@ -86,14 +86,7 @@ end;
 
 { TApi }
 
-class procedure TApi._onShowRequestException(AResponse: TResponse;
-  AnException: Exception; var handled: boolean);
-begin
-  TApi._print(AnException.Message);
-  handled := True;
-end;
-
-class procedure TApi._print(txt: String);
+class procedure TApi.print(txt: String);
 begin
   Windows.OutputDebugString(PChar(txt));
 end;
@@ -114,18 +107,18 @@ end;
 
 class procedure TApi.start(port: Word);
 begin
-  TApi._print('server.create()');
-  TApi.server := TServerThread.Create(port);
+  TApi.print('server.create()');
+  TApi._server := TServerThread.Create(port);
 end;
 
 class procedure TApi.stop;
 begin
-  TApi._print('Terminate: ' + BoolToStr(fpHttpApp.Application.Terminated));
+  TApi.print('Terminate: ' + BoolToStr(fpHttpApp.Application.Terminated));
   fpHttpApp.Application.Terminate;
-  TApi._print('Terminate: ' + BoolToStr(fpHttpApp.Application.Terminated));
+  TApi.print('Terminate: ' + BoolToStr(fpHttpApp.Application.Terminated));
   Sleep(3000);
   TApi.isActive:=false;
-  TApi._print('Terminate: ' + BoolToStr(fpHttpApp.Application.Terminated));
+  TApi.print('Terminate: ' + BoolToStr(fpHttpApp.Application.Terminated));
 end;
 
 // GET /users
@@ -323,14 +316,15 @@ begin
 
       // str to json
       json := fpJson.GetJSON(taskStr) as TJsonObject;
-
       // json to object
       js.JSONToObject(json, task);
 
       // insert & get new id
       status := TTask.insert(task).ToString();
+
+      // refresh tasks
+      frmMain.btnRefresh.Click;
     except
-      // -1 = error
       status := 'error';
     end;
   finally
@@ -379,10 +373,14 @@ begin
       // json to object
       js.JSONToObject(json, task);
 
-      _print(task.ToString());
+      print(task.ToString());
 
       // update
       TTask.update(task);
+
+      // refresh
+      frmMain.btnRefresh.Click;
+
       status := 'updated';
     except
       // false = error
@@ -418,6 +416,10 @@ begin
       begin
         id := StrToInt(req.RouteParams['id']);
         TTask.delete(id);
+
+        // refresh
+        frmMain.btnRefresh.Click;
+
         status := 'deleted';
       end
       else
@@ -450,7 +452,8 @@ begin
       begin
         id := StrToInt(req.RouteParams['id']);
         task := TTask.get(id);
-        if (printTask(task) = -1) then // callback from frmMain on initialization
+
+        if (frmMain.printTask(task) = -1) then // callback from frmMain on initialization
           status := 'not printed'
         else
           status := 'printed';

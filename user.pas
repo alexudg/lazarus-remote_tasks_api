@@ -33,6 +33,7 @@ type
       class var
         currentUser: TUser;
 
+      constructor Create; overload;
       constructor Create(
         id: integer;
         name: String;
@@ -77,6 +78,11 @@ begin
   CreateGUID(guid);
   token := guid.ToString(true); // (without brackets {} = true)
   TSQLite.execSql(SQL, [token, id]);
+end;
+
+constructor TUser.Create;
+begin
+  self.id:=-1;
 end;
 
 constructor TUser.Create(
