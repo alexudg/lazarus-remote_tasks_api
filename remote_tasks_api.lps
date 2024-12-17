@@ -8,10 +8,10 @@
       <Unit>
         <Filename Value="remote_tasks_api.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="19" Y="6"/>
+        <CursorPos X="31" Y="4"/>
         <UsageCount Value="116"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="umain.pas"/>
@@ -19,12 +19,10 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="174"/>
-        <CursorPos X="51" Y="179"/>
+        <TopLine Value="4"/>
+        <CursorPos X="39" Y="16"/>
         <UsageCount Value="116"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="api.pas"/>
@@ -173,6 +171,12 @@
         <TopLine Value="4"/>
         <UsageCount Value="21"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\printers\printer4lazarus.pas"/>
+        <UnitName Value="Printer4Lazarus"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
